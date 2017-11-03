@@ -1,0 +1,38 @@
+[32mINFO    [0m [37musing tendermint dir: .tendermint[0m
+[32mINFO    [0m [37mVanillaApp started on port: 46658[0m
+[32mINFO    [0m [37mreceived connection from: 127.0.0.1:37948[0m
+[32mINFO    [0m [37mreceived connection from: 127.0.0.1:37950[0m
+[32mINFO    [0m [37mreceived connection from: 127.0.0.1:37952[0m
+[36mDEBUG   [0m [37mRaw tx: b'\x01'[0m
+Traceback (most recent call last):
+  File "/home/zaibon/dev/go/src/github.com/incubaid/blockchain_research/tendermint/pocs/kvs/.env/lib/python3.6/site-packages/rlp-0.4.7-py3.6.egg/rlp/sedes/lists.py", line 239, in deserialize
+    values = cls.get_sedes().deserialize(serial)
+  File "/home/zaibon/dev/go/src/github.com/incubaid/blockchain_research/tendermint/pocs/kvs/.env/lib/python3.6/site-packages/rlp-0.4.7-py3.6.egg/rlp/sedes/lists.py", line 66, in deserialize
+    raise ListDeserializationError('Can only deserialize sequences', serial)
+rlp.exceptions.ListDeserializationError: Can only deserialize sequences
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zaibon/dev/go/src/github.com/incubaid/blockchain_research/tendermint/pocs/kvs/.env/lib/python3.6/site-packages/gevent-1.2.2-py3.6-linux-x86_64.egg/gevent/greenlet.py", line 536, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "/home/zaibon/dev/go/src/github.com/incubaid/blockchain_research/tendermint/pocs/kvs/.env/lib/python3.6/site-packages/gevent-1.2.2-py3.6-linux-x86_64.egg/gevent/baseserver.py", line 26, in _handle_and_close_when_done
+    return handle(*args_tuple)
+  File "/home/zaibon/dev/go/src/github.com/incubaid/blockchain_research/tendermint/pocs/kvs/.env/lib/python3.6/site-packages/vanilla-0.1.1-py3.6.egg/vanilla/app.py", line 330, in __handle_connection
+    result = self.__handle_abci_call(req_type, req)
+  File "/home/zaibon/dev/go/src/github.com/incubaid/blockchain_research/tendermint/pocs/kvs/.env/lib/python3.6/site-packages/vanilla-0.1.1-py3.6.egg/vanilla/app.py", line 188, in __handle_abci_call
+    return handler(req)
+  File "/home/zaibon/dev/go/src/github.com/incubaid/blockchain_research/tendermint/pocs/kvs/.env/lib/python3.6/site-packages/vanilla-0.1.1-py3.6.egg/vanilla/app.py", line 220, in check_tx
+    decoded_tx = self.__decode_incoming_tx(req.check_tx.tx)
+  File "/home/zaibon/dev/go/src/github.com/incubaid/blockchain_research/tendermint/pocs/kvs/.env/lib/python3.6/site-packages/vanilla-0.1.1-py3.6.egg/vanilla/app.py", line 217, in __decode_incoming_tx
+    return Transaction.decode(rawtx)
+  File "/home/zaibon/dev/go/src/github.com/incubaid/blockchain_research/tendermint/pocs/kvs/.env/lib/python3.6/site-packages/vanilla-0.1.1-py3.6.egg/vanilla/transactions.py", line 61, in decode
+    outer = rlp.decode(bits, sedes=cls)
+  File "/home/zaibon/dev/go/src/github.com/incubaid/blockchain_research/tendermint/pocs/kvs/.env/lib/python3.6/site-packages/rlp-0.4.7-py3.6.egg/rlp/codec.py", line 216, in decode
+    obj = sedes.deserialize(item, **kwargs)
+  File "/home/zaibon/dev/go/src/github.com/incubaid/blockchain_research/tendermint/pocs/kvs/.env/lib/python3.6/site-packages/rlp-0.4.7-py3.6.egg/rlp/sedes/lists.py", line 241, in deserialize
+    raise ObjectDeserializationError(serial=serial, sedes=cls, list_exception=e)
+rlp.exceptions.ObjectDeserializationError: Deserialization failed because of underlying list ("Can only deserialize sequences")
+Fri Oct 27 11:50:36 2017 <Greenlet at 0x7f3fe010cc28: _handle_and_close_when_done(<bound method VanillaApp.__handle_connection of <v, <bound method StreamServer.do_close of <StreamServ, (<gevent._socket3.socket [closed]  object, fd=-1, )> failed with ObjectDeserializationError
+
+[32mINFO    [0m [37mshutting down the application[0m
